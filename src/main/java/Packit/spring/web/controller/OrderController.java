@@ -20,7 +20,7 @@ public class OrderController {
             @PathVariable Long id,
             @RequestBody UpdateStatusRequest request) {
         orderService.updateStatus(id, request.getToStatus());
-        return ResponseEntity.ok("상태가 성공적으로 변경되었습니다.");
+        return ResponseEntity.ok("updated well");
     }
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody CreateOrderRequest request) {
