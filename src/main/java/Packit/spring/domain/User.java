@@ -33,10 +33,11 @@ public class User extends BaseEntity {
 
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "user")
-    private List<Bookmark> bookmarks;
-
     @OneToMany
     private List<Order> orders;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Bookmark> bookmarks;
+
 
 }

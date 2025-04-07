@@ -4,6 +4,8 @@ import Packit.spring.domain.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -28,5 +30,7 @@ public class Store extends BaseEntity {
     private String storeImage;
     private String storeLicense;
 
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Bookmark> bookmarks;
 
 }
