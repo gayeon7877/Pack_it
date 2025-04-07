@@ -1,7 +1,7 @@
 package Packit.spring.web.controller;
 
 import Packit.spring.domain.Order;
-import Packit.spring.domain.OrderStatus;
+import Packit.spring.domain.enums.OrderStatus;
 import Packit.spring.service.OrderService;
 import Packit.spring.web.dto.CreateOrderRequest;
 import Packit.spring.web.dto.UpdateStatusRequest;

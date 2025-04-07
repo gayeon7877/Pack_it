@@ -1,6 +1,6 @@
 package Packit.spring.web.dto;
 
-import Packit.spring.domain.OrderStatus;
+import Packit.spring.domain.enums.OrderStatus;
 import lombok.Getter;
 import lombok.Setter;
 

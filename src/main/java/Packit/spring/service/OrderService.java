@@ -1,7 +1,7 @@
 package Packit.spring.service;
 
 import Packit.spring.domain.Order;
-import Packit.spring.domain.OrderStatus;
+import Packit.spring.domain.enums.OrderStatus;
 import Packit.spring.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

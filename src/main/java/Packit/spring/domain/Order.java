@@ -1,5 +1,8 @@
 package Packit.spring.domain;
 
+import Packit.spring.domain.common.BaseEntity;
+import Packit.spring.domain.enums.OrderStatus;
+import Packit.spring.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +16,20 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Table(name = "orders")
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id", nullable = false)
+    private Store store;
+
+
     private String customerName;
+
+
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -34,4 +44,12 @@ public class Order {
         this.status = nextStatus;
         this.statusLogs.add(new OrderStatusLog(this, nextStatus));
     }
+
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod payment;
+
+    private String requirement;
+    private int menu_id;
+    private int quantity;
+    private int fee;
 }

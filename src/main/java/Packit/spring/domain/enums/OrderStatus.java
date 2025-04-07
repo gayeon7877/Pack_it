@@ -1,4 +1,4 @@
-package Packit.spring.domain;
+package Packit.spring.domain.enums;
 
 public enum OrderStatus {
     REQUESTED,
