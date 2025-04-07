@@ -1,5 +1,6 @@
 package Packit.spring.domain;
 
+import Packit.spring.domain.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
