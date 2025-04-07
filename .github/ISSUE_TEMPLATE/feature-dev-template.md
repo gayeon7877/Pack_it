@@ -7,14 +7,6 @@ assignees: ''
 
 ---
 
----
-name: "✨ 기능 개발 이슈"
-about: "새로운 기능을 개발하거나 기존 기능을 확장하기 위한 작업 이슈입니다."
-title: "[Feature] 기능 요약 제목을 작성해주세요"
-labels: feature, backend
-assignees: ''
----
-
 ## 📌 개요
 
 > 어떤 기능을 개발하려는지 간략히 설명해주세요.
