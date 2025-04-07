@@ -24,8 +24,8 @@ jobs:
         run: chmod +x ./gradlew
         shell: bash # (6).권한 부여
 
-      - name: Build with Gradle
-        run: ./gradlew clean build
+      - name: Build with Gradle (test included)
+      - run: ./gradlew clean build -Dspring.profiles.active=test
         shell: bash # (7).build 시작
 
       - name: Get current time
