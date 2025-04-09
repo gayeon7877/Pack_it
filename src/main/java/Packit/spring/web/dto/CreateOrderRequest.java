@@ -7,4 +7,9 @@ import lombok.Setter;
 @Setter
 public class CreateOrderRequest {
     private String customerName;
+    private Long storeId;
+    private int menuId;
+    private int quantity;
+    private int fee;
 }
+
