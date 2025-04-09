@@ -1,11 +1,10 @@
 package Packit.spring.web.controller;
 
-import Packit.spring.domain.Order;
+import Packit.spring.domain.enums.OrderEvent;
+import Packit.spring.domain.enums.OrderState;
 import Packit.spring.service.OrderService;
-import Packit.spring.web.dto.CreateOrderRequest;
-import Packit.spring.web.dto.UpdateStatusRequest;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,17 +14,11 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    @PatchMapping("/{id}/status")
-    public ResponseEntity<String> updateStatus(
-            @PathVariable Long id,
-            @RequestBody UpdateStatusRequest request) {
-        orderService.updateStatus(id, request.getToStatus());
-        return ResponseEntity.ok("updated well");
+    @PostMapping("/event")
+    public String handleEvent(
+            @RequestParam OrderState currentState,
+            @RequestParam OrderEvent event
+    ) {
+        return orderService.processOrderEvent(currentState, event);
     }
-    @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody CreateOrderRequest request) {
-        Order order = orderService.createOrder(request.getCustomerName());
-        return ResponseEntity.ok(order);
-    }
-
 }

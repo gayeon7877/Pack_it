@@ -1,6 +1,7 @@
 package Packit.spring.domain;
 
 import Packit.spring.domain.common.BaseEntity;
+import Packit.spring.domain.enums.OrderState;
 import Packit.spring.domain.enums.OrderStatus;
 import Packit.spring.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
@@ -32,18 +33,10 @@ public class Order extends BaseEntity {
 
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private OrderState status;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderStatusLog> statusLogs = new ArrayList<>();
-
-    public void updateStatus(OrderStatus nextStatus) {
-        if (!this.status.canTransitionTo(nextStatus)) {
-            throw new IllegalStateException("Invalid status transition: " + this.status + " → " + nextStatus);
-        }
-        this.status = nextStatus;
-        this.statusLogs.add(new OrderStatusLog(this, nextStatus));
-    }
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod payment;
